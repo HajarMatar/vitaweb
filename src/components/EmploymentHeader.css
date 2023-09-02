@@ -1,0 +1,291 @@
+.empl-header-container{
+    background-image: url("../Images/backgroundSecond.png");
+    height: 50vh;
+    padding-left: 10%;
+    padding-top: 10%;
+padding-right: 10%;
+}
+.empl-inner-container{
+    width: 100%;
+    background-color: grey;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    
+}
+.empl-inner-left{
+    width: 45%;
+    background-image: linear-gradient(to right, #abcae4 , #acb1d4);
+
+padding-left: 5%;
+padding-top: 1%;
+}
+.empl-inner-left-h3{
+color:  #312783;
+font-size: 2vw;
+}
+.empl-inner-left-p{
+    color:  #312783;
+    font-size: 1.5vw;
+    width: 70%;
+}
+.empl-inner-right{
+    width: 50%;
+    background-image: url("../Images/Employmentpic.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.empl-body-container{
+    height: 90vh;
+   
+    padding-left: 20%;
+    padding-right: 20%;
+
+    padding-top: 1%;
+}
+.empl-body-h1{
+    text-align: center;
+}
+.input-100{
+    width: 99.7%;
+    height: 5vh;
+    border-radius: 5px;
+    padding: 0px;
+   
+}
+.label-100{
+    font-size: 1.5vw ;
+    color:  #312783;
+
+
+}
+.empl-body-first{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 99%;
+    gap: 30%;
+    line-height: 5vh;
+}
+.empl-body-labelsmid{
+    width: 35%;
+}
+.input-101{
+    width: 100%;
+    height: 50%;
+    border-radius: 5px;
+}
+.empl-Submit-btn-body{
+    width: 100%;
+    border-radius: 5px;
+    height: 6vh;
+    margin-top: 5vh;
+    color: white;
+    background-color:  #312783;
+    font-size: 1.2vw;
+    font-weight: 600;
+    letter-spacing: 0.3vw;
+}
+
+
+
+/* phone css */
+
+@media screen and (max-width: 767px) {
+
+
+
+
+    .empl-header-container {
+        height: 75vh;
+        padding-left: 5%;
+        padding-top: 20%;
+        padding-right: 5%;
+    }
+
+    .empl-inner-container {
+        width: 100%;
+        background-color: grey;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .empl-inner-right {
+        width: 100%;
+        height: 100%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+  
+    }
+    .empl-inner-left {
+        width: 95%;
+        background-image: linear-gradient(to right, #abcae4 , #acb1d4);
+        padding-left: 5%;
+        padding-top: 1%;
+    }
+    .empl-inner-left-h3 {
+        color: #312783;
+        font-size: 7vw;
+    }
+    .empl-inner-left-p {
+        color: #312783;
+        font-size: 5.5vw;
+        width: 95%;
+    }
+
+
+
+
+    .empl-body-container {
+        height: auto;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 1%;
+        padding-bottom: 4vh;
+    }
+    .label-100 {
+        font-size: 4.5vw;
+        color: #312783;
+    }
+
+    .empl-Submit-btn-body {
+        width: 100%;
+        border-radius: 5px;
+        height: 6vh;
+        margin-top: 5vh;
+        color: white;
+        background-color: #312783;
+        font-size: 6.2vw;
+        font-weight: 500;
+        letter-spacing: 0.3vw;
+    }
+
+
+
+
+}
+
+
+
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+
+
+    
+
+
+
+        .empl-header-container {
+            height: auto;
+            padding-left: 5%;
+            padding-top: 10%;
+            padding-right: 5%;
+        }
+
+
+
+
+
+        .empl-header-container {
+            height: auto;
+            padding-left: 5%;
+            padding-top: 15%;
+            padding-right: 5%;
+            padding-bottom: 10%;
+        }
+
+        .empl-inner-left {
+            width: 45%;
+            background-image: linear-gradient(to right, #abcae4 , #acb1d4);
+            padding-left: 3%;
+            padding-top: 1%;
+        }
+
+
+
+
+
+
+
+        .empl-inner-left-h3 {
+            color: #312783;
+            font-size: 5vw;
+        }
+
+        .empl-inner-left-h3 {
+            color: #312783;
+            font-size: 5vw;
+            margin-bottom: 0px;
+        }
+
+
+
+        .empl-inner-left-p {
+            color: #312783;
+            font-size: 3.1vw;
+            width: 95%;
+        }
+
+
+        .empl-body-container {
+            height: auto;
+            padding-left: 5%;
+            padding-right: 5%;
+            padding-top: 1%;
+            padding-bottom: 5%;
+        }
+
+        .label-100 {
+            font-size: 3vw;
+            color: #312783;
+        }
+
+
+
+        .empl-Submit-btn-body {
+            width: 100%;
+            height: 100%;
+            margin-top: 5vh;
+            color: white;
+            background-color: #312783;
+            font-size: 3.5vw;
+            font-weight: 500;
+            letter-spacing: 0.3vw;
+            padding-top: 3%;
+            padding-bottom: 3%;
+            border-radius: 10px;
+        }
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

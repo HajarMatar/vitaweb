@@ -1,0 +1,299 @@
+.HomeThirdSection-container{
+    background-image: url("../Images/background3.png");
+    height: 160vh;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: 100% 100%;
+    margin-top: 0px;
+    padding-top: 1vh;
+ 
+}
+.header-ThirdSection{
+    color: white;
+    font-size: 3.5vw;
+    padding-left: 10%;
+}
+.middile-thirdSection{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.left-middile-thirdSection{
+    width: 35%;
+    padding-left: 10%;
+   
+}
+.parag-left-middile-thirdSection{
+    font-size: 3.5vw;
+    color: white;
+}
+.displayflex-row{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    gap: 5%;
+
+}
+.parag-left-middile-thirdSection1225{
+    color: white;
+}
+.phoneicon{
+    width: 30%;
+    height: 10vh;
+}
+.right-middile-thirdSection{
+    width: 55%;
+    padding-top: 5%;
+
+}
+.tankspng{
+    width: 90%;
+}
+.final-thirdsection{
+    display: flex;
+    flex-direction: row;
+}
+.left-final-thirdsection{
+    width: 45%;
+    padding-left: 10%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.right-final-thirdsection{
+    width: 45%;
+    padding-right: 10%;
+    text-align: center;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header-final-thirdsection{
+    color: #312783;
+    font-size: 2.5vw;
+}
+
+.header-final-thirdsection-Swimming{
+    color: #312783;
+    font-size: 2.5vw;
+}
+
+.img-final-thirdsection{
+    width: 60%;
+    height: 65%;
+
+}
+.parag-final-thirdsection{
+    color:  #312783;
+    width: 50%;
+}
+.paragright-final-thirdsection{
+    width: 95%;
+    color:  #312783;
+
+}
+
+
+
+
+@media screen and (max-width: 767px) {
+
+
+
+    .header-ThirdSection {
+        color: white;
+        font-size: 7vw;
+        padding-left: 10%;
+    }
+
+
+
+
+    .middile-thirdSection {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .left-middile-thirdSection {
+        width: 90%;
+        padding-left: 10%;
+    }
+
+
+
+    .parag-left-middile-thirdSection {
+        font-size: 7vw;
+        color: white;
+    }
+
+
+
+    .phoneicon {
+        width: 30%;
+        height: 80%;
+    }
+
+    .parag-left-middile-thirdSection1225 {
+        color: white;
+        font-size: 5.5vw;
+    }
+
+
+
+
+    .right-middile-thirdSection {
+        width: 100%;
+        padding-top: 5%;
+        padding-bottom: 3vh;
+
+    }
+
+
+    .tankspng {
+        width: 100%;
+    }
+
+
+
+    .HomeThirdSection-container {
+        height: auto;
+        background-repeat: no-repeat;
+        width: 100%;
+        background-size: 100% 100%;
+        margin-top: 0px;
+        padding-top: 1vh;
+    }
+
+
+
+    .final-thirdsection {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+
+
+
+
+
+    .left-final-thirdsection {
+        width: 100%;
+        padding-left: 0px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+
+    .header-final-thirdsection {
+        color: white;
+        font-size: 8vw;
+        border: 2px solid white;
+        border-radius: 10px;
+        width: 66%;
+    }
+
+    .parag-final-thirdsection {
+        color: #312783;
+        width: 85%;
+    }
+
+
+    .right-final-thirdsection {
+        width: 100%;
+        padding-right: 0px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+
+    .header-final-thirdsection-Swimming {
+        color: #312783;
+        font-size: 8vw; 
+         border: 2px solid #312783;
+        border-radius: 10px;
+        width: 66%;
+    }
+
+
+
+
+
+
+
+
+    .img-final-thirdsection {
+        width: 75%;
+        height: 85%;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+.HomeThirdSection-container {
+    height: auto;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: 100% 100%;
+    margin-top: 0px;
+    padding-top: 1vh;
+}
+
+
+.phoneicon {
+    width: 100%;
+    height: 50%;
+    padding-top: 10%;
+}
+
+
+}

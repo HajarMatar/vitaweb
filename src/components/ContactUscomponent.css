@@ -1,0 +1,217 @@
+.header-contactus{
+    background-image: url("../Images/AboutBackground.png");
+height: 50vh;
+background-size: 100% 100%;
+}
+.body-contact-container{
+    height: 90vh;
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+   
+}
+
+.contact-h1{
+    color:  #312783;
+    font-size: 3.5vw;
+}
+.innner-body-contact{
+    height: 65vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.inner-body-contact-left{
+    background-color: #f3f3f4;
+    width: 30%;
+    height: 80%;
+    border: 1px solid black;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.img-contactus-inner{
+    height: 6vh;
+    width: 20%;
+    padding-top: 1vh;
+
+}
+.inner-inner-contact-left{
+    padding-top: 5%;
+    padding-left: 5%;
+    display: flex;
+    flex-direction: row;
+    height: 8vh;
+    gap: 10%;
+}
+.h1-nomargin{
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+}
+.inner-body-contact-right{
+    background-color: #f3f3f4;
+    width: 35%;
+    height: 80%;
+    border: 1px solid black;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2%;
+}
+.h1-inner-body-contact{
+   
+    color: #312783;
+}
+.parag-inner-body-contact{
+    
+    width: 90%;
+    line-height: 2vh;
+    
+    border-bottom: 1px solid black;
+}
+
+
+
+
+/* phone css */
+@media screen and (max-width: 767px) {
+
+
+    .header-contactus {
+        height: 30vh;
+        background-size: 100% 100%;
+    }
+
+    .contact-h1{
+        color:  #312783;
+        font-size: 8vw;
+    }
+
+    .body-contact-container {
+        height: auto;
+        width: 90%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+
+    .innner-body-contact {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 5%;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 3vh;
+    }
+
+
+
+    .inner-body-contact-left {
+        background-color: #f3f3f4;
+        width: 100%;
+        height: 80%;
+        border: 1px solid black;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+
+    .inner-body-contact-right {
+        background-color: #f3f3f4;
+        width: 100%;
+        height: 80%;
+        border: 1px solid black;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        padding-left: 2%;
+        margin-top: 5vh;
+    }
+
+
+}
+
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+
+    .body-contact-container {
+        height: auto;
+        width: 90%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+
+    .inner-body-contact-left {
+        background-color: #f3f3f4;
+        width: 45%;
+        height: 70%;
+        border: 1px solid black;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+
+    .inner-body-contact-right {
+        background-color: #f3f3f4;
+        width: 45%;
+        height: 70%;
+        border: 1px solid black;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        padding-left: 2%;
+    }
+    
+    .h1-nomargin {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 2.7vw;
+    }
+
+
+    .at-vita{
+        font-size: 2.7vw;
+    }
+
+    .h1-inner-body-contact {
+        color: #312783;
+        font-size: 3.7vw;
+    }
+
+
+
+
+    .parag-inner-body-contact {
+        width: 90%;
+        line-height: 2vh;
+        border-bottom: 1px solid black;
+        font-size: 2.3vw;
+     
+}
+
+.innner-body-contact {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 10%;
+}
+
+}
