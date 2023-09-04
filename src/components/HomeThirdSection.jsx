@@ -4,11 +4,17 @@ import phoneicon from "../Images/phoneicon.png"
 import tanks from "../Images/tanks.png"
 import homethirdsectionimg from "../Images/homethirdsection.jpg"
 import homethirdsectionimgg from "../Images/homethirdsection2.jpg"
+import { useTranslation } from 'react-i18next';
 
 const HomeThirdSection = () => {
+  const { t, i18n } = useTranslation();
+
+    const changeLanguage = lng => {
+        i18n.changeLanguage(lng);
+    };
   return (
     <div className='HomeThirdSection-container'>
-<h1 className='header-ThirdSection'>Filling all different sizes</h1>
+<h1 className='header-ThirdSection'>{t('homethird.filling')}</h1>
 
 
 <div className='middile-thirdSection'>
@@ -16,10 +22,21 @@ const HomeThirdSection = () => {
 
 <div className='left-middile-thirdSection'>
     <h1 className='parag-left-middile-thirdSection'>
-JUST GIVE <br />
-US <br />
-A CALL <br />
-</h1>
+    {t('homethird.just')} <br /></h1>
+
+<div className='left-middile-thirdSection'>
+    <h1 className='parag-left-middile-thirdSection'>
+    {t('homethird.us')} <br /></h1>
+
+<div className='left-middile-thirdSection'>
+    <h1 className='parag-left-middile-thirdSection'>
+    {t('homethird.call')} <br /></h1>
+ <br />
+ <br />
+
+</div>
+</div>
+
 <div className='displayflex-row'>
 <img className='phoneicon' src={phoneicon} alt="" />
 <h1 className='parag-left-middile-thirdSection1225'>1225</h1>
@@ -46,19 +63,15 @@ A CALL <br />
 
 <div className='left-final-thirdsection'>
 
-<h1 className='header-final-thirdsection'>Storage Tanks</h1>
+<h1 className='header-final-thirdsection'>{t('homethird.storage')} </h1>
 <img className='img-final-thirdsection' src={homethirdsectionimg} alt="" />
-<h3 className='parag-final-thirdsection'>Providing potable
-water to irrigate crops
-at reasonable prices</h3>
+<h3 className='parag-final-thirdsection'>{t('homethird.provide')} </h3>
 </div>
 <div className='right-final-thirdsection'>
 
-<h1 className='header-final-thirdsection-Swimming'>Swimming Pools</h1>
+<h1 className='header-final-thirdsection-Swimming'>{t('homethird.pools')}</h1>
 <img className='img-final-thirdsection' src={homethirdsectionimgg} alt="" />
-<h3 className='paragright-final-thirdsection'>Give us a call to arrange to deliver water for
-your swimming pool quickly and for a
-fair price. We also can fill or pond as well</h3>
+<h3 className='paragright-final-thirdsection'>{t('homethird.pool')}</h3>
 </div>
 
 

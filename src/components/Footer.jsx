@@ -7,12 +7,16 @@ import facebookicon from "../Images/facebookicon.png"
 import instagramicon from "../Images/instagramicon.png"
 import twittericon from "../Images/twittericon.png"
 import { Link } from 'react-router-dom'
-
+import { useTranslation } from 'react-i18next';
 
 
 
 const Footer = () => {
+    const { t, i18n } = useTranslation();
 
+    const changeLanguage = lng => {
+        i18n.changeLanguage(lng);
+    };
 
 
 
@@ -33,25 +37,25 @@ const Footer = () => {
      <div className='Footer-container'>
 
     <div className='left-footer'>
-    <Link to="/"> <button className='button-left-footer'>Home</button></Link>
-    <Link to="/AboutUs"> <button className='button-left-footer'>About Us</button></Link>
-    <Link to="/ContactUs"> <button className='button-left-footer'>Contact us</button></Link>
+    <Link to="/"> <button className='button-left-footer'>{t('footer.home')} </button></Link>
+    <Link to="/AboutUs"> <button className='button-left-footer'>{t('footer.about Us')}</button></Link>
+    <Link to="/ContactUs"> <button className='button-left-footer'>{t('footer.contact Us')}</button></Link>
 
     </div>
 
     <div className='middle-footer'>
 
-    <Link to="/Employment"> <button className='button-left-footer'>Employment</button></Link>
-    <Link to="/Customer"><button className='button-left-footer'>Customer</button></Link>
-        <button className='button-left-footer desapear'>Terms of use</button>
+    <Link to="/Employment"> <button className='button-left-footer'>{t('footer.employment')}</button></Link>
+    <Link to="/Customer"><button className='button-left-footer'>{t('footer.customer')}</button></Link>
+        <button className='button-left-footer desapear'>{t('footer.term of use')}</button>
 
 
     </div>
     
     <div className='middle-footer'>
 
-<button className='button-left-footer desapear'>Privacy policy</button>
-    <button className='button-left-footer desapear'>Help/FAQ</button>
+<button className='button-left-footer desapear'>{t('footer.privacy')}</button>
+    <button className='button-left-footer desapear'>{t('footer.help')}</button>
 
 
 </div>
