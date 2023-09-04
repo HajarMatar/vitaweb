@@ -1,7 +1,13 @@
 import React from 'react';
 import "./AboutUscomponent.css"
+import { useTranslation } from 'react-i18next';
 
 const AboutUscomponent = () => {
+  const { t, i18n } = useTranslation();
+
+   const changeLanguage = lng => {
+     i18n.changeLanguage(lng);
+   };
   return (
     <div>
        <div className='header-aboutus'>
@@ -10,15 +16,13 @@ const AboutUscomponent = () => {
       <div className='about-body-container'>
 
         <h1 className='about-h1'>
-            About Vita
+        {t('aboutus.about')}
         </h1>
         <br />
-        <p  className='about-p'>Vita is a company for the distribution of drinking water and the use and
-filling of swimming poolas,
+        <p  className='about-p'> {t('aboutus.info1')}
 <br />
-it extracts water from deep springs, where we filter the water professionally,
-and our expert examine the water in our own laboratories to
-reach the best result</p>
+</p>
+<p  className='complet it-p'> {t('aboutus.info2')} </p>
       </div>
         
 

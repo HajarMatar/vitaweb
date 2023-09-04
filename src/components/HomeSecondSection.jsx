@@ -7,25 +7,31 @@ import AppStore from "../Images/AppStore.png"
 import Googleplay from "../Images/GooglePlay.png"
 import mapimg from "../Images/maping.png"
 import vitabox from "../Images/vitalogobox.png"
+import { useTranslation } from 'react-i18next';
 
 const HomeSecondSection = () => {
+    const { t, i18n } = useTranslation();
+
+    const changeLanguage = lng => {
+        i18n.changeLanguage(lng);
+    };
   return (
     <div className='Home-SecondSection-container'>
 
 <div className='LeftSecondSection'>
-    <h1 className='header-SecondSection'>SELLING P<span className='letter-o'>O</span>INTS</h1>
-<p className='parag-SectionSection'>For directions, click on your nearest location.</p>
+    <h1 className='header-SecondSection'>{t('homesecond.selling')}</h1>
+<p className='parag-SectionSection'>{t('homesecond.direction')}</p>
 
-<p className='parag-SecondSecSection'>With one click we will</p>
+<p className='parag-SecondSecSection'>{t('homesecond.with')}</p>
 
 <div className='inter-phone'>
-    <p className='p-interSecondSection'>be there</p>
+    <p className='p-interSecondSection'>{t('homesecond.be')}</p>
     <img className='phonee' src={Phone} alt="" />
 </div>
 
 
 
-    <h1 className='Download-secondSection'>DOWNLOAD OUR APP</h1>
+    <h1 className='Download-secondSection'>{t('homesecond.down')}</h1>
     
     <div className='download-holder'>
         <div className='images-button-stores'>

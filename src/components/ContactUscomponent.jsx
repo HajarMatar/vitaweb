@@ -7,13 +7,20 @@ import twittericonblue from "../Images/twittericonblue.png"
 import Navcomp from '../components/Navcomp';
 import AboutUscomponent from '../components/AboutUscomponent';
 import Footer from '../components/Footer';
+import { useTranslation } from 'react-i18next';
+
 const ContactUscomponent = () => {
+  const { t, i18n } = useTranslation();
+
+   const changeLanguage = lng => {
+     i18n.changeLanguage(lng);
+   };
   return (
     <div>
         <div className='header-contactus'>
        </div>
       <div className='body-contact-container'>
-<h1 className='contact-h1'>Contact Us
+<h1 className='contact-h1'>{t('contactus.contact')}
 </h1>
 
 
@@ -24,7 +31,7 @@ const ContactUscomponent = () => {
 <div className='inner-inner-contact-left'>
     <img className='img-contactus-inner' src={Emailicon} alt="" />
    <div>  
-     <h3 className='h1-nomargin'>Email us</h3>
+     <h3 className='h1-nomargin'>{t('contactus.email')}</h3>
   
     <p className='h1-nomargin'>vita@gmail.com</p>
 
@@ -37,7 +44,7 @@ const ContactUscomponent = () => {
 <div className='inner-inner-contact-left'>
     <img className='img-contactus-inner' src={phoneiconblue} alt="" />
    <div>  
-     <h3 className='h1-nomargin'>Call us</h3>
+     <h3 className='h1-nomargin'>{t('contactus.call')}</h3>
   
     <p className='h1-nomargin'>01- 33 44 55</p>
 
@@ -48,7 +55,7 @@ const ContactUscomponent = () => {
 <div className='inner-inner-contact-left'>
     <img className='img-contactus-inner' src={facebookiconblue} alt="" />
     
-     <h3 className='at-vita' >@vita</h3>
+     <h3 className='at-vita' >{t('contactus.fb')} </h3>
   
  
 
@@ -60,7 +67,7 @@ const ContactUscomponent = () => {
 <div className='inner-inner-contact-left'>
     <img className='img-contactus-inner' src={twittericonblue} alt="" />
     
-     <h3 className='at-vita'>@vita</h3>
+     <h3 className='at-vita'>{t('contactus.twt')}</h3>
   
  
 
@@ -81,15 +88,15 @@ const ContactUscomponent = () => {
 
 <div className='inner-body-contact-right'>
 
-<h2 className='h1-inner-body-contact'>Popular Topics</h2>
+<h2 className='h1-inner-body-contact'>{t('contactus.popular')}</h2>
 
-<p className='parag-inner-body-contact'>Product issue or quality complaint</p>
+<p className='parag-inner-body-contact'>{t('contactus.product')}</p>
 
-<p className='parag-inner-body-contact'>Share your story or compliment</p>
-<p className='parag-inner-body-contact'>Send us a suggestion</p>
-<p className='parag-inner-body-contact'>Question about a promotion</p>
-<p className='parag-inner-body-contact'>Careers</p>
-<p className='parag-inner-body-contact'>Find a product</p>
+<p className='parag-inner-body-contact'>{t('contactus.share')}</p>
+<p className='parag-inner-body-contact'>{t('contactus.send')}</p>
+<p className='parag-inner-body-contact'>{t('contactus.question')}</p>
+<p className='parag-inner-body-contact'>{t('contactus.careers')}</p>
+<p className='parag-inner-body-contact'>{t('contactus.find')}</p>
 
 
 
