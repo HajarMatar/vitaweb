@@ -193,15 +193,10 @@ const resources = {
       "cust.calc": "أحسب",
       "cust.liter": "ليتر المياه",
       "cust.diameter": " قطر حمام السباحة",
-    
 
-
-
-
-
-
+      // Login
       "login.welcome": "اهلا",
-      "login.serverError": "علامة تجارية",
+      "login.serverError": "Server error",
 
     }
   },

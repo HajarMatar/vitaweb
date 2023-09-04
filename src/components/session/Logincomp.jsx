@@ -51,12 +51,14 @@ const Logincomp = () => {
     if (type === 'client') {
       url = '/client_login'
     } else {
-      url = '/client_login'
+      url = '/supplier_login'
     }
-    post(url, [{ phone_number: phoneNumber, password: password }]) // Example endpoint for login
+    post(url, { phone_number: phoneNumber, password: password }) // Example endpoint for login
       .then((response) => {
         console.log('login response', response);
-        if (response.result === "Successful") { 
+        // const data = response[0]; // Response returned as array but data is in first element
+        const data = response;
+        if (data.result === "Successful") { 
 
           console.log('Logged in successfully:', token);
           const newToken = "User logged in"
@@ -67,9 +69,9 @@ const Logincomp = () => {
           // Store token or set it in a state, depending on your architecture
           navigate('/'); // Navigate to the home pag
 
-        } else if (response.result === "Wrong Password") {
+        } else if (data.result === "Wrong Password") {
           setError('Authentication failed');
-        } else if (response.result === "Username Not Found") {
+        } else if (data.result === "Username Not Found") {
           setError('Username Not Found');
         } else {
           setError(t('login.serverError'))
@@ -79,14 +81,14 @@ const Logincomp = () => {
         setError('Network error');
 
         // Remove once API work 
-          console.log('Logged in successfully:', token);
-          const newToken = "User logged in"
-          setIsLoggedIn(true);
-          setError('');
-          localStorage.setItem('token', newToken); // storage for web like database
-          setToken(newToken);
-          // Store token or set it in a state, depending on your architecture
-          navigate('/'); // Navigate to the home pag
+          // console.log('Logged in successfully:', token);
+          // const newToken = "User logged in"
+          // setIsLoggedIn(true);
+          // setError('');
+          // localStorage.setItem('token', newToken); // storage for web like database
+          // setToken(newToken);
+          // // Store token or set it in a state, depending on your architecture
+          // navigate('/'); // Navigate to the home pag
         
       });
   };
