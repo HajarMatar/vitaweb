@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import ChangePassword from "./pages/ChangePassword";
 import SignUp from "./pages/SignUp";
 import Edit from "./pages/Edit";
+import CustomerOrders from "./pages/CustomerOrders"
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
           <Route path='/AboutUs' element={<AboutUs />} />
           <Route path='/ContactUs' element={<ContactUs />} />
           <Route path='/Customer' element={<ProtectedRoute element={<Customer />} />} />
+          <Route path='/CustomerOrders' element={<ProtectedRoute element={<CustomerOrders />} />} />
+
         </Routes>
       </BrowserRouter>
     </div>
