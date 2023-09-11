@@ -24,9 +24,6 @@ const Navcomp = () => {
        <Link to="/Customer"><button className='button-navbar'>{t('nav.customer')} </button></Link>
        <Link to="/AboutUs"><button className='button-navbar'>{t('nav.about Us')}</button></Link>
        <Link to="/ContactUs"> <button className='button-navbar'>{t('nav.contact Us')}</button></Link>
-       <Link to="/changepassword"><button className='button-navbar'>change password</button></Link>
-       <Link to="/Edit"> <button className='button-navbar'>Edit </button></Link>
-       <Link to="/signup"><button className='button-navbar'>signup</button></Link>
        <button className="button-navbar" onClick={() => changeLanguage('en')}>English</button>
        <button className="button-navbar" onClick={() => changeLanguage('ar')}>العربية</button>
 

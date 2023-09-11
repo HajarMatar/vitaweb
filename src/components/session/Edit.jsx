@@ -17,7 +17,7 @@ const EditComp = () => {
   const [password, setPassword] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(token !== '');
   const [error, setError] = useState('');
-  
+
   const handlePhoneNumberChange = (event) => {
     setPhoneNumber(event.target.value);
   };
@@ -79,20 +79,20 @@ const EditComp = () => {
 
   return (
     <div>
-       <div className='Edit-header-container'></div>
-       <div className='Edit-body-container'>
+      <div className='Edit-header-container'></div>
+      <div className='Edit-body-container'>
         
           <div>
             <h2>Edit</h2>
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <div>
-              <label>Username:</label>
-              <input
-                type="text"
-                value={phoneNumber}
-                onChange={handlePhoneNumberChange}
-              />
-            </div>
+          <label>Username:</label>
+                    <input
+            type="text"
+            value={phoneNumber}
+            onChange={handlePhoneNumberChange}
+          />
+          </div>
             <div>
               <label>Password:</label>
               <input
@@ -100,13 +100,13 @@ const EditComp = () => {
                 value={password}
                 onChange={handlePasswordChange}
               />
-            </div>
-            <button onClick={handleLogin}>Login</button>
+              </div>
+<button onClick={handleLogin}>Login</button>
           </div>
-      
+          
       </div>
     </div>
   );
-}
+  }
 
 export default EditComp;

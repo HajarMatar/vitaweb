@@ -8,8 +8,8 @@ const resources = {
       "nav.home": "Home",
       "nav.employment": "Employment",
       "nav.customer": "Customer",
-      "nav.about Us": "About Us",
-      "nav.contact Us": "Contact Us",
+      "nav.about Us": "AboutUs",
+      "nav.contact Us": "ContactUs",
 
       //HomeFirstSection component
       "homefirst.water": "WATER DISTRIBUTION",
@@ -85,6 +85,7 @@ const resources = {
       "cust.title": "For Our Customers",
       "cust.watertank": "WATERTANK",
       "cust.vat": "(INCLUDING VAT)",
+      "cust.order":"Order",
       "cust.swimming": "SWIMMING POOL",
       "cust.cal1": "Calculation For The Round Pool",
       "cust.avg": "Average Depth Of The Pool",
@@ -95,6 +96,8 @@ const resources = {
       "cust.liter": "Liter of water",
       "cust.calc": "Calculate",
       "cust.diameter": "Diameter Of The Pool",
+      "cust.view2":"View my order",
+      "cust.view1":"View all suplier",
 
 
 
@@ -183,17 +186,19 @@ const resources = {
       "cust.title": "لعملائنا",
       "cust.watertank": "خزان المياه",
       "cust.vat": "(بما في ذلك ضريبة القيمة المضافة)",
+      "cust.order":"أطلب",
       "cust.swimming": "حمام السباحة",
       "cust.cal1": "حساب للمسبح المستدير",
       "cust.avg": "متوسط ​​عمق حوض السباحة",
-      "cust.pool": "حمام السباحة الخاص بك يستوعب<",
+      "cust.pool": "حمام السباحة الخاص بك يستوعب",
       "cust.cal2": "حساب للمسبح المستطيل",
       "cust.length": "طول حمام السباحة",
       "cust.width": "عرض حمام السباحة",
       "cust.calc": "أحسب",
       "cust.liter": "ليتر المياه",
       "cust.diameter": " قطر حمام السباحة",
-
+      "cust.view2":"عرض جميع الموردين",
+      "cust.view1":"عرض جميع طلباتي",
       // Login
       "login.welcome": "اهلا",
       "login.serverError": "Server error",

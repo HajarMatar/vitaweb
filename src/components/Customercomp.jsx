@@ -66,14 +66,12 @@ const Customercomp = () => {
 
       <div className="second-customer-container">
         <h2 className="header-second-customer-container"> {t('cust.watertank')}</h2>
-        
         <div className="second-inner-container-custom">
           <div className="second-inner-container-custom-div">
             <p className="second-inner-container-custom-firstp">1000L</p>
             <img className="second-inner-container-custom-img" src={firstcustomer} alt="dfsd" />
             <p className="parag-second-inner-container-custom">1000L</p>
-            <p className="parag-second-inner-container-custom">20$</p>
-
+            <button>{t('cust.order')}</button>
             <p className="parag-second-inner-container-custom">  {t('cust.vat')}
             </p>
           </div>
@@ -88,31 +86,26 @@ const Customercomp = () => {
             <p className="second-inner-container-custom-firstp">2000L</p>
             <img className="second-inner-container-custom-img" src={secondcustomer} alt="dfsd" />
             <p className="parag-second-inner-container-custom">2000L</p>
-            <p className="parag-second-inner-container-custom">30$</p>
-
+            <button>{t('cust.order')}</button>
             <p className="parag-second-inner-container-custom">  {t('cust.vat')}
             </p>
 
           </div>
           <div className="second-inner-container-custom-div">
-
             <p className="second-inner-container-custom-firstp">3000L</p>
             <img className="second-inner-container-custom-img" src={thirdcustomer} alt="dfsd" />
             <p className="parag-second-inner-container-custom">3000L</p>
-            <p className="parag-second-inner-container-custom">40$</p>
-
+            <button>{t('cust.order')}</button>
             <p className="parag-second-inner-container-custom">  {t('cust.vat')}
             </p>
           </div>
 
 
           <div className="second-inner-container-custom-div">
-
             <p className="second-inner-container-custom-firstp">4000L</p>
             <img className="second-inner-container-custom-img" src={fourthcustomer} alt="dfsd" />
             <p className="parag-second-inner-container-custom">4000L</p>
-            <p className="parag-second-inner-container-custom">50$</p>
-
+            <button>{t('cust.order')}</button>
             <p className="parag-second-inner-container-custom">  {t('cust.vat')}
             </p>
           </div>
@@ -120,12 +113,10 @@ const Customercomp = () => {
 
 
           <div className="second-inner-container-custom-div">
-
             <p className="second-inner-container-custom-firstp">5000L</p>
             <img className="second-inner-container-custom-img" src={fifthcustomer} alt="dfsd" />
             <p className="parag-second-inner-container-custom">5000L</p>
-            <p className="parag-second-inner-container-custom">60$</p>
-
+            <button>{t('cust.order')}</button>
             <p className="parag-second-inner-container-custom">  {t('cust.vat')}
             </p>
           </div>
@@ -136,16 +127,29 @@ const Customercomp = () => {
             <p className="second-inner-container-custom-firstp">6000L</p>
             <img className="second-inner-container-custom-img" src={sixthcustomer} alt="dfsd" />
             <p className="parag-second-inner-container-custom">6000L</p>
-            <p className="parag-second-inner-container-custom">70$</p>
-
+            <button>{t('cust.order')}</button>
             <p className="parag-second-inner-container-custom">  {t('cust.vat')}
             </p>
           </div>
         </div>
       </div>
 
+      <div>
 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+        <button className="calculate-customer">{t('cust.view1')}</button>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;
+        <button className="calculate-customer">{t('cust.view2')}</button>
+
+      </div>
 
       {/* pool calculators  */}
 
