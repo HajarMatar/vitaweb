@@ -11,7 +11,7 @@ import sixthcustomer from "../Images/sixthcustumer.png"
 import customerpool1 from "../Images/customerpool1.png"
 import customerpool2 from "../Images/customerpool2.png"
 import { useTranslation } from 'react-i18next';
-import { post } from '../services/httpService';
+import { post, get } from '../services/httpService';
 
 
 const Customercomp = () => {
@@ -32,23 +32,25 @@ const Customercomp = () => {
 
   const [tanks, setTanks] = useState([]);
   const [buttonClickCount, setButtonClickCount] = useState(0);
+  const [paymentType, setPaymentType] = useState('');
 
 
   useEffect(() => {
     // Make an API call to fetch the data
 
-    let url = '/view_client_orders'; // get tanks
-    post(url, { 'client_id': '1', 'state': 'all' }) // Example endpoint for login
+    const user = JSON.parse(localStorage.getItem('user'));
+    let url = '/view_tanks?id=' + user.id ; // get tanks
+    get(url) // Example endpoint for login
       .then((response) => {
         console.log('get tanks response', response);
-        response = [
-        { 'type': 'tank', 'size': '1000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' },
-        { 'type': 'tank', 'size': '2000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' },
-        { 'type': 'tank', 'size': '3000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' },
-        { 'type': 'tank', 'size': '4000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' },
-        { 'type': 'tank', 'size': '5000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' },
-        { 'type': 'tank', 'size': '6000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' }
-      ]
+      //   response = [
+      //   { 'type': 'tank', 'size': '1000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' },
+      //   { 'type': 'tank', 'size': '2000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' },
+      //   { 'type': 'tank', 'size': '3000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' },
+      //   { 'type': 'tank', 'size': '4000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' },
+      //   { 'type': 'tank', 'size': '5000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' },
+      //   { 'type': 'tank', 'size': '6000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' }
+      // ]
         setTanks(response);
       })
       .catch((error) => {
@@ -81,8 +83,22 @@ const Customercomp = () => {
   }
 
   const handleInputChange = (e) => {
-    const paymentType= e.target.value;
+    setPaymentType(e.target.value);
   };
+
+  const orderTank = (tank, paymentType) => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    let url = '/add_order';
+    post(url, { 'client_id': user.id, 'tank_id': tank.ID, 'payment_method':  paymentType}) // Example endpoint for login
+      .then((response) => {
+        console.log('add order response', response, tank, paymentType);
+        // window.location.href = '/CustomerOrders'; // Replace with the URL of the page you want to navigate to
+      })
+      .catch((error) => {
+        console.error('Error add order:', error)
+      });
+
+  }
 
   const getTankImage = (tank) => {
 
@@ -128,7 +144,7 @@ const Customercomp = () => {
                 />
               </p>
 
-              <p className="parag-second-inner-container-custom">  <button >{t('cust.order')}</button>
+              <p className="parag-second-inner-container-custom">  <button onClick={() => orderTank(tank, paymentType)}>{t('cust.order')}</button>
 
               </p>
 

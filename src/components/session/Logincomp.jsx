@@ -1,6 +1,6 @@
 import "./Logincomp.css"
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom'; // Import useNavigate
 import { useTranslation } from 'react-i18next';
 import Loginfootercomp from "./Loginfootercomp";
@@ -31,20 +31,16 @@ const Logincomp = () => {
   };
 
 
-
-  const handleLogin2 = () => {
-    const newToken = login(phoneNumber, password);
-    console.log('handle login', newToken);
-
-    if (newToken) {
-      setIsLoggedIn(true);
-      setError('');
-      localStorage.setItem('token', newToken);
-      setToken(newToken);
-    } else {
-      setError('Invalid PhoneNumber or password');
+  useEffect(() => {
+    if (isLoggedIn) {
+      const type = localStorage.getItem('userType');
+      const user = JSON.parse(localStorage.getItem('user'));
+      console.log('user', user);
+      setPhoneNumber(user.name);
     }
-  };
+
+  }, []);
+
 
   const handleLogin = () => {
     let url = '';
@@ -60,12 +56,13 @@ const Logincomp = () => {
         // const data = response[0]; // Response returned as array but data is in first element
         const data = response;
         if (data.result === "Successful") {
-
           console.log('Logged in successfully:', token);
           const newToken = "User logged in"
           setIsLoggedIn(true);
           setError('');
           localStorage.setItem('token', newToken); // storage for web like database
+          localStorage.setItem('userType', type);
+          localStorage.setItem('user', JSON.stringify(response.client)); // storage for web like database
           setToken(newToken);
           // Store token or set it in a state, depending on your architecture
           navigate('/'); // Navigate to the home pag
@@ -98,6 +95,8 @@ const Logincomp = () => {
     console.log('handle handleLogout');
 
     localStorage.removeItem('token');
+    localStorage.removeItem('userType');
+    localStorage.removeItem('user');
     setToken('');
     setIsLoggedIn(false);
     setPhoneNumber('');
@@ -117,50 +116,50 @@ const Logincomp = () => {
 
       {isLoggedIn ? (
         <div>
-          <p style={{ textAlign: 'center'}}>{t('login.welcome')}, {phoneNumber}!</p>
-          <br/>
+          <p style={{ textAlign: 'center' }}>{t('login.welcome')}, {phoneNumber}!</p>
+          <br />
           <button className="button-login" onClick={handleLogout}>Logout</button>
         </div>
       ) : (
 
-          <div>
-            <h1 className="h1-text-align"> Login</h1>
-            <div className="Login-inner-container">
+        <div>
+          <h1 className="h1-text-align"> Login</h1>
+          <div className="Login-inner-container">
 
 
-              <label className="labels-login" > Phone number</label>
-              <br />
-              <input
-                type="text"
-                value={phoneNumber}
-                onChange={handlePhoneNumberChange}
-              />
-              <br />
-              <label className="labels-login">password</label>
-              <br />
-              <input
-                type="password"
-                value={password}
-                onChange={handlePasswordChange}
-              />
-              <br />
-              <button onClick={handleLogin} className="button-login">Login</button>
-            </div>
+            <label className="labels-login" > Phone number</label>
+            <br />
+            <input
+              type="text"
+              value={phoneNumber}
+              onChange={handlePhoneNumberChange}
+            />
+            <br />
+            <label className="labels-login">password</label>
+            <br />
+            <input
+              type="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+            <br />
+            <button onClick={handleLogin} className="button-login">Login</button>
           </div>
-
-
-)}
-
-
-
-          <Loginfootercomp />
-          <br/>
-          <br/>
-
-
-
-
         </div>
+
+
+      )}
+
+
+
+      <Loginfootercomp />
+      <br />
+      <br />
+
+
+
+
+    </div>
 
   )
 

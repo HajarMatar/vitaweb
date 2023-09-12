@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./CustomerOrders.css"
-import { post } from '../services/httpService';
+import { get, post } from '../services/httpService';
 import { useTranslation } from 'react-i18next';
 
 const CustomerOrderscomponent = () => {
@@ -11,9 +11,10 @@ const CustomerOrderscomponent = () => {
 
   useEffect(() => {
     // Make an API call to fetch the data
-
-    let url = '/view_client_orders';
-    post(url, { 'client_id': '1', 'state': 'all' }) // Example endpoint for login
+    const user = JSON.parse(localStorage.getItem('user'));
+    console.log('user', user);
+    let url = '/view_client_orders' + '?id=' + user.id;
+    get(url) // Example endpoint for login
       .then((response) => {
         console.log('get client orders response', response);
         setOrders(response);
@@ -85,8 +86,8 @@ const CustomerOrderscomponent = () => {
         <div className='innner-body-contact'>
 
           <div className="orders-container">
-            {orders.map((order) => (
-              <div key={order.id} className="order-card">
+            {orders.map((order, index) => (
+              <div key={index} className="order-card">
                 <div>
                   <strong>Offer ID:</strong> {order.offer_id || 'N/A'}
                 </div>
@@ -100,7 +101,7 @@ const CustomerOrderscomponent = () => {
                   <strong>State:</strong> {order.state}
                 </div>
                 <div>
-                  <strong>Updated At:</strong> {order.updated_at || 'N/A'}
+                  <strong>Created At:</strong> {order.created_at || 'N/A'}
                 </div>
 
                 {order.state === 'pending' && (
