@@ -13,26 +13,34 @@ import Edit from "./pages/Edit";
 import CustomerOrders from "./pages/CustomerOrders"
 import ViewAllSuplier from "./pages/ViewAllSuplier"
 
+import Signuppage from "./pages/Signuppage";
+import Loginpage from "./pages/Loginpage"
+import ChangepassPage from "./pages/ChangepassPage";
+import EditPage from "./pages/EditPage";
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home />} />
+    <Routes>
+    <Route path='/' element={<Home />} />
           <Route path='/Home' element={<Home />} />
-          <Route path='/Login' element={<Login />} />
+          {/* <Route path='/Login' element={<Login />} /> */}
           <Route path='/changepassword' element={<ProtectedRoute element={<ChangePassword />} />} />
           <Route path='/edit' element={<Edit />} />
-          <Route path='/signup' element={<SignUp />} />
-          <Route path='/Employment' element={<Employment />} />
-          <Route path='/AboutUs' element={<AboutUs />} />
-          <Route path='/ContactUs' element={<ContactUs />} />
-          <Route path='/Customer' element={<ProtectedRoute element={<Customer />} />} />
-          <Route path='/CustomerOrders' element={<ProtectedRoute element={<CustomerOrders />} />} />
-          <Route path='/ViewAllSuplier' element={<ProtectedRoute element={<ViewAllSuplier />} />} />
-
-        </Routes>
-      </BrowserRouter>
+    {/* <Route path='/signup' element={<SignUp />} /> */}
+    <Route path='/Employment' element={<Employment />} />
+    <Route path='/AboutUs' element={<AboutUs />} />
+    <Route path='/ContactUs' element={<ContactUs />} />
+    <Route path='/Customer' element={<ProtectedRoute element={<Customer />} />} />
+    <Route path='/CustomerOrders' element={<ProtectedRoute element={<CustomerOrders />} />} />
+    <Route path='/ViewAllSuplier' element={<ProtectedRoute element={<ViewAllSuplier />} />} />
+    <Route path='/Login' element={<Loginpage />} />
+    <Route path='/Signup' element={<Signuppage />} />
+    <Route path='/Changepass' element={<ChangepassPage />} />
+    <Route path='/EditPage' element={<EditPage />} />
+    </Routes>
+    </BrowserRouter>
     </div>
   );
 }
