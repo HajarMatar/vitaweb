@@ -20,8 +20,8 @@ const Navcomp = () => {
    // Event handler for when the dropdown selection changes
    const handleSelectChange = (e) => {
      setSelectedOption(e.target.value);
-      console.log("setSelectedOption", selectedOption );
-     if(selectedOption === 'English'){
+      console.log("setSelectedOption", e.target.value, selectedOption );
+     if(e.target.value === 'English'){
       i18n.changeLanguage('en');
      } else{
       i18n.changeLanguage('ar');

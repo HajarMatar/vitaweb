@@ -1,6 +1,7 @@
 import "./Customercomp.css"
 
 import { useState, useEffect } from "react"
+import { Link } from 'react-router-dom'
 import firstcustomer from "../Images/firstcustomer.png"
 import secondcustomer from "../Images/secondcustomer.png"
 import thirdcustomer from "../Images/thirdcustomer.png"
@@ -10,6 +11,8 @@ import sixthcustomer from "../Images/sixthcustumer.png"
 import customerpool1 from "../Images/customerpool1.png"
 import customerpool2 from "../Images/customerpool2.png"
 import { useTranslation } from 'react-i18next';
+import { post } from '../services/httpService';
+
 
 const Customercomp = () => {
   const { t, i18n } = useTranslation();
@@ -26,6 +29,32 @@ const Customercomp = () => {
   const [width, setwidth] = useState(0)
   const [depthRectangular, setdepthRectangular] = useState(0)
   const [resultRectangular, setresultRectangular] = useState(0)
+
+  const [tanks, setTanks] = useState([]);
+  const [buttonClickCount, setButtonClickCount] = useState(0);
+
+
+  useEffect(() => {
+    // Make an API call to fetch the data
+
+    let url = '/view_client_orders'; // get tanks
+    post(url, { 'client_id': '1', 'state': 'all' }) // Example endpoint for login
+      .then((response) => {
+        console.log('get tanks response', response);
+        response = [
+        { 'type': 'tank', 'size': '1000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' },
+        { 'type': 'tank', 'size': '2000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' },
+        { 'type': 'tank', 'size': '3000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' },
+        { 'type': 'tank', 'size': '4000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' },
+        { 'type': 'tank', 'size': '5000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' },
+        { 'type': 'tank', 'size': '6000', 'region': 'beirut', 'client_id': '1', 'address': 'city-area-street-bldg-floor' }
+      ]
+        setTanks(response);
+      })
+      .catch((error) => {
+        console.error('Error fetching orders:', error)
+      });
+  }, [buttonClickCount]);
 
   useEffect(() => {
 
@@ -51,9 +80,28 @@ const Customercomp = () => {
 
   }
 
+  const handleInputChange = (e) => {
+    const paymentType= e.target.value;
+  };
 
+  const getTankImage = (tank) => {
 
-
+    if (tank.size <= 1000) {
+      return firstcustomer;
+    } else if (tank.size <= 2000) {
+      return secondcustomer;
+    } else if (tank.size <= 3000) {
+      return thirdcustomer;
+    } else if (tank.size <= 4000) {
+      return fourthcustomer;
+    } else if (tank.size <= 5000) {
+      return fifthcustomer;
+    } else if (tank.size <= 6000) {
+      return sixthcustomer;
+    } else {
+      return firstcustomer;
+    }
+  };
 
 
 
@@ -67,70 +115,26 @@ const Customercomp = () => {
       <div className="second-customer-container">
         <h2 className="header-second-customer-container"> {t('cust.watertank')}</h2>
         <div className="second-inner-container-custom">
-          <div className="second-inner-container-custom-div">
-            <p className="second-inner-container-custom-firstp">1000L</p>
-            <img className="second-inner-container-custom-img" src={firstcustomer} alt="dfsd" />
-            <p className="parag-second-inner-container-custom">1000L</p>
-            <button>{t('cust.order')}</button>
-            <p className="parag-second-inner-container-custom">  {t('cust.vat')}
-            </p>
-          </div>
 
+          {tanks.map((tank, index) => (
+            <div key={index} className="second-inner-container-custom-div">
+              <p className="second-inner-container-custom-firstp">{tank.size}L</p>
+              <img className="second-inner-container-custom-img" src={getTankImage(tank)} alt="dfsd" />
+              <p className="parag-second-inner-container-custom">Payment Method:
+                <input
+                  type="text"
+                  onBlur={handleInputChange}
+                  placeholder="Cash"
+                />
+              </p>
 
+              <p className="parag-second-inner-container-custom">  <button >{t('cust.order')}</button>
 
+              </p>
 
+            </div>
+          ))}
 
-
-
-          <div className="second-inner-container-custom-div">
-            <p className="second-inner-container-custom-firstp">2000L</p>
-            <img className="second-inner-container-custom-img" src={secondcustomer} alt="dfsd" />
-            <p className="parag-second-inner-container-custom">2000L</p>
-            <button>{t('cust.order')}</button>
-            <p className="parag-second-inner-container-custom">  {t('cust.vat')}
-            </p>
-
-          </div>
-          <div className="second-inner-container-custom-div">
-            <p className="second-inner-container-custom-firstp">3000L</p>
-            <img className="second-inner-container-custom-img" src={thirdcustomer} alt="dfsd" />
-            <p className="parag-second-inner-container-custom">3000L</p>
-            <button>{t('cust.order')}</button>
-            <p className="parag-second-inner-container-custom">  {t('cust.vat')}
-            </p>
-          </div>
-
-
-          <div className="second-inner-container-custom-div">
-            <p className="second-inner-container-custom-firstp">4000L</p>
-            <img className="second-inner-container-custom-img" src={fourthcustomer} alt="dfsd" />
-            <p className="parag-second-inner-container-custom">4000L</p>
-            <button>{t('cust.order')}</button>
-            <p className="parag-second-inner-container-custom">  {t('cust.vat')}
-            </p>
-          </div>
-
-
-
-          <div className="second-inner-container-custom-div">
-            <p className="second-inner-container-custom-firstp">5000L</p>
-            <img className="second-inner-container-custom-img" src={fifthcustomer} alt="dfsd" />
-            <p className="parag-second-inner-container-custom">5000L</p>
-            <button>{t('cust.order')}</button>
-            <p className="parag-second-inner-container-custom">  {t('cust.vat')}
-            </p>
-          </div>
-
-
-          <div className="second-inner-container-custom-div">
-
-            <p className="second-inner-container-custom-firstp">6000L</p>
-            <img className="second-inner-container-custom-img" src={sixthcustomer} alt="dfsd" />
-            <p className="parag-second-inner-container-custom">6000L</p>
-            <button>{t('cust.order')}</button>
-            <p className="parag-second-inner-container-custom">  {t('cust.vat')}
-            </p>
-          </div>
         </div>
       </div>
 
@@ -140,14 +144,13 @@ const Customercomp = () => {
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-        <button className="calculate-customer">{t('cust.view1')}</button>
+        <Link to="/ViewAllSuplier"><button className="calculate-customer" >{t('cust.view1')}</button></Link>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;
-        <button className="calculate-customer">{t('cust.view2')}</button>
+        <Link to="/CustomerOrders"><button className="calculate-customer">{t('cust.view2')}</button></Link>
 
       </div>
 

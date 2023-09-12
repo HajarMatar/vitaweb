@@ -11,6 +11,7 @@ import ChangePassword from "./pages/ChangePassword";
 import SignUp from "./pages/SignUp";
 import Edit from "./pages/Edit";
 import CustomerOrders from "./pages/CustomerOrders"
+import ViewAllSuplier from "./pages/ViewAllSuplier"
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path='/ContactUs' element={<ContactUs />} />
           <Route path='/Customer' element={<ProtectedRoute element={<Customer />} />} />
           <Route path='/CustomerOrders' element={<ProtectedRoute element={<CustomerOrders />} />} />
+          <Route path='/ViewAllSuplier' element={<ProtectedRoute element={<ViewAllSuplier />} />} />
 
         </Routes>
       </BrowserRouter>

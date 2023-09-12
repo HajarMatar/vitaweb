@@ -1,72 +1,76 @@
 import React, { useEffect, useState } from 'react';
 import "./CustomerOrders.css"
 import { post } from '../services/httpService';
-
 import { useTranslation } from 'react-i18next';
 
 const CustomerOrderscomponent = () => {
   const { t, i18n } = useTranslation();
-
   const [orders, setOrders] = useState([]);
+  const [buttonClickCount, setButtonClickCount] = useState(0);
+
 
   useEffect(() => {
     // Make an API call to fetch the data
-    const exampleData = [
-      {
-        "client_id": 1,
-        "created_at": null,
-        "id": 4,
-        "offer_id": 3,
-        "payment_method": "cash",
-        "price": 50,
-        "state": "accepted",
-        "supplier_id": 1,
-        "tank_id": 2,
-        "updated_at": "Mon, 28 Aug 2023 11:33:30 GMT"
-      },
-      {
-        "client_id": 1,
-        "created_at": null,
-        "id": 5,
-        "offer_id": 2,
-        "payment_method": "cash",
-        "price": 50,
-        "state": "pending",
-        "supplier_id": 1,
-        "tank_id": 2,
-        "updated_at": "Sat, 26 Aug 2023 12:47:47 GMT"
-      },
-      {
-        "client_id": 1,
-        "created_at": null,
-        "id": 6,
-        "offer_id": 3,
-        "payment_method": "cash",
-        "price": 60,
-        "state": "accepted",
-        "supplier_id": 1,
-        "tank_id": 2,
-        "updated_at": "Sat, 26 Aug 2023 12:47:47 GMT"
-      },
-      // Add more example data here...
-    ];
-    setOrders(exampleData);
-
 
     let url = '/view_client_orders';
     post(url, { 'client_id': '1', 'state': 'all' }) // Example endpoint for login
       .then((response) => {
-        console.log('login response', response);
-        setOrders(response.dataa);
+        console.log('get client orders response', response);
+        setOrders(response);
       })
       .catch((error) => {
         console.error('Error fetching orders:', error)
       });
-  }, []);
+  }, [buttonClickCount]);
 
   const cancelOrder = (orderId) => {
     // Implement cancel order functionality here
     // You can make another API call to cancel the order or update its state
+    let url = '/delete_order';
+    post(url, { 'id': orderId }) // Example endpoint for login
+      .then((response) => {
+        console.log('delete order response', response);
+        setButtonClickCount((prevCount) => prevCount + 1);
+      })
+      .catch((error) => {
+        console.error('Error fetching orders:', error)
+      });
+  };
+
+  const acceptOffer = (orderId, offerId) => {
+    // Implement accept offer functionality here
+    // You can update the status of the offer locally
+    const updatedOrders = orders.map((order) => {
+      if (order.id === orderId) {
+        const updatedOffers = order.offers.map((offer) => {
+          if (offer.id === offerId) {
+            return { ...offer, status: 'accepted' };
+          }
+          return offer;
+        });
+        return { ...order, offers: updatedOffers };
+      }
+      return order;
+    });
+    setOrders(updatedOrders);
+  };
+
+  const rejectOffer = (orderId, offerId) => {
+    // Implement reject offer functionality here
+    // You can update the status of the offer locally
+    const updatedOrders = orders.map((order) => {
+      if (order.id === orderId) {
+        const updatedOffers = order.offers.map((offer) => {
+          if (offer.id === offerId) {
+            return { ...offer, status: 'rejected' };
+          }
+          return offer;
+        });
+        return { ...order, offers: updatedOffers };
+      }
+      return order;
+    });
+    setOrders(updatedOrders);
   };
 
 
@@ -98,22 +102,44 @@ const CustomerOrderscomponent = () => {
                 <div>
                   <strong>Updated At:</strong> {order.updated_at || 'N/A'}
                 </div>
+
                 {order.state === 'pending' && (
                   <div className="button-container">
                     <button className="cancel-button" onClick={() => cancelOrder(order.id)}>
                       Cancel Order
                     </button>
+                    {/* <strong>Supplier Offers:</strong>
+                    <ul>
+                      {order.offers.map((offer) => (
+                        <li key={offer.id}>
+                          Offer Price: {offer.price}, Status: {offer.status}
+                          {offer.status === 'pending' && (
+                            <div className="button-container">
+                              <button
+                                className="accept-button"
+                                onClick={() => acceptOffer(order.id, offer.id)}
+                              >
+                                Accept
+                              </button>
+                              <button
+                                className="reject-button"
+                                onClick={() => rejectOffer(order.id, offer.id)}
+                              >
+                                Reject
+                              </button>
+                            </div>
+                          )}
+                        </li>
+                      ))}
+                    </ul> */}
                   </div>
                 )}
               </div>
             ))}
           </div>
-          
         </div>
-
       </div>
     </div>
   );
 };
-
 export default CustomerOrderscomponent;
