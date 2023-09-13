@@ -22,6 +22,18 @@ const Logincomp = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(token !== '');
   const [error, setError] = useState('');
 
+  const [isToggled, setIsToggled] = useState(false);
+  const [type, setType] = useState('client');
+
+  const handleToggle = () => {
+    setIsToggled(!isToggled);
+    if(type == 'client'){
+      setType('supplier')
+    } else{
+      setType('client')
+    }
+  };
+
   const handlePhoneNumberChange = (event) => {
     setPhoneNumber(event.target.value);
   };
@@ -33,7 +45,7 @@ const Logincomp = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      const type = localStorage.getItem('userType');
+      setType(localStorage.getItem('userType'));
       const user = JSON.parse(localStorage.getItem('user'));
       console.log('user', user);
       setPhoneNumber(user.name);
@@ -44,7 +56,7 @@ const Logincomp = () => {
 
   const handleLogin = () => {
     let url = '';
-    let type = 'client';
+    console.log('login', type);
     if (type === 'client') {
       url = '/client_login'
     } else {
@@ -62,7 +74,7 @@ const Logincomp = () => {
           setError('');
           localStorage.setItem('token', newToken); // storage for web like database
           localStorage.setItem('userType', type);
-          localStorage.setItem('user', JSON.stringify(response.client)); // storage for web like database
+          localStorage.setItem('user', JSON.stringify(response.client || response.supplier)); // storage for web like database
           setToken(newToken);
           // Store token or set it in a state, depending on your architecture
           navigate('/'); // Navigate to the home pag
@@ -76,7 +88,12 @@ const Logincomp = () => {
         }
       })
       .catch((error) => {
-        setError('Network error');
+        console.log('error', error)
+        if (error?.response?.data?.result){
+          setError(error?.response?.data?.result);
+        }else {
+          setError('Network error');
+        }
 
         // Remove once API work 
         // console.log('Logged in successfully:', token);
@@ -125,7 +142,13 @@ const Logincomp = () => {
         <div>
           <h1 className="h1-text-align"> Login</h1>
           <div className="Login-inner-container">
+          <label className="labels-login" >User type</label>
 
+            <br/>
+          <button className="toggle-button" onClick={handleToggle}>
+        {isToggled ? 'Supplier' : 'Customer'}
+      </button>
+      <br/>
 
             <label className="labels-login" > Phone number</label>
             <br />
@@ -144,6 +167,7 @@ const Logincomp = () => {
             />
             <br />
             <button onClick={handleLogin} className="button-login">Login</button>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
           </div>
         </div>
 

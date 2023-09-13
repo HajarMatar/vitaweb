@@ -92,7 +92,7 @@ const Customercomp = () => {
     post(url, { 'client_id': user.id, 'tank_id': tank.ID, 'payment_method':  paymentType}) // Example endpoint for login
       .then((response) => {
         console.log('add order response', response, tank, paymentType);
-        // window.location.href = '/CustomerOrders'; // Replace with the URL of the page you want to navigate to
+        window.location.href = '/CustomerOrders';
       })
       .catch((error) => {
         console.error('Error add order:', error)

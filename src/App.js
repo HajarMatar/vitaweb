@@ -32,8 +32,8 @@ function App() {
     <Route path='/Employment' element={<Employment />} />
     <Route path='/AboutUs' element={<AboutUs />} />
     <Route path='/ContactUs' element={<ContactUs />} />
-    <Route path='/Customer' element={<ProtectedRoute element={<Customer />} />} />
-    <Route path='/CustomerOrders' element={<ProtectedRoute element={<CustomerOrders />} />} />
+    <Route path='/Customer' element={<ProtectedCustomerRoute element={<Customer />} />} />
+    <Route path='/CustomerOrders' element={<ProtectedCustomerRoute element={<CustomerOrders />} />} />
     <Route path='/ViewAllSuplier' element={<ProtectedRoute element={<ViewAllSuplier />} />} />
     <Route path='/Login' element={<Loginpage />} />
     <Route path='/Signup' element={<Signuppage />} />
@@ -55,6 +55,20 @@ function ProtectedRoute({ element }) {
   }, []);
 
   return authenticated ? element : <Navigate to="/Login" />;
+}
+
+// Custom route wrapper to protect routes
+function ProtectedCustomerRoute({ element }) {
+  const [authenticated, setAuthenticated] = useState(isLoggedIn());
+
+  // Re-check authentication status on navigation
+  useEffect(() => {
+    setAuthenticated(isLoggedIn());
+  }, []);
+
+  let type = localStorage.getItem('userType')
+
+  return authenticated && type === 'client' ? element : <Navigate to="/Login" />;
 }
 
 // isLoggedIn function

@@ -12,10 +12,10 @@ const AppViewAllSuplier = () => {
   useEffect(() => {
     // Replace 'your-api-endpoint' with the actual API endpoint URL
 
-    let url = '/view_client_orders';
-    post(url, { 'client_id': '1', 'state': 'all' }) // Example endpoint for login
+    let url = '/view_all_suppliers';
+    post(url, ['{Beirut}']) // Example endpoint for login
       .then((response) => {
-        console.log('get client orders response', response);
+        console.log('get view_all_suppliers response', response);
         setUsers(response);
       })
       .catch((error) => {
@@ -44,8 +44,6 @@ const AppViewAllSuplier = () => {
                   <p>Phone Number: {user.phone_number}</p>
                   <p>Region: {user.region}</p>
                   <p>Created At: {user.created_at}</p>
-                  <p>Username: {user.username}</p>
-                  <p>Password: {user.password}</p>
                 </div>
               ))}
             </div>

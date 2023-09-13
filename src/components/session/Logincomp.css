@@ -61,3 +61,32 @@
     font-size: 1.5vw;
     color: white;
 }
+
+/* Container styles */
+.toggle-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Button styles */
+  .toggle-button {
+    background-color: #0074e4; /* Primary blue color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    outline: none;
+    width: 50%;
+    margin-left: 25%;
+  }
+  
+  .toggle-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Text styles */
+  .toggle-text {
+    color: #0074e4; /* Primary blue color */
+    font-size: 18px;
+  }
+  
