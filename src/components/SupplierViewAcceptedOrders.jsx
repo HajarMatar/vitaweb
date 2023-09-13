@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import "./SupplierViewOrders.css"
+import "./SupplierViewAcceptedOrders.css"
 import { get, post } from '../services/httpService';
 import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const SupplierViewOrderscomponent = () => {
+const SupplierViewAcceptedOrderscomponent = () => {
   const { t, i18n } = useTranslation();
   const [orders, setOrders] = useState([]);
   const [buttonClickCount, setButtonClickCount] = useState(0);
@@ -20,10 +20,10 @@ const SupplierViewOrderscomponent = () => {
     // Make an API call to fetch the data
     const user = JSON.parse(localStorage.getItem('user'));
     console.log('user', user);
-    let url = '/view_supplier_orders' + '?id=' + user.id;
+    let url = '/view_supplier_orders_to_serve' + '?id=' + user.id;
     get(url)
       .then((response) => {
-        console.log('get view_supplier_orders response', response);
+        console.log('get view_supplier_orders_to_serve response', response);
         setOrders(response);
       })
       .catch((error) => {
@@ -31,14 +31,13 @@ const SupplierViewOrderscomponent = () => {
       });
   }, [buttonClickCount]);
 
-  const addOffer = (order) => {
-    console.log('addOffer', order);
-    let url = '/add_offer';
+  const completeOrder = (order) => {
+    let url = '/complete_order?id=' + order.id + "&offer_id=" + order.offers_id;
     const user = JSON.parse(localStorage.getItem('user'));
-    post(url, { order_id: order.id, supplier_id: user.id, tank_id: order.tank_id, payment_method: order.payment_method, price: price || 50 }) // Example endpoint for login
+    post(url, {}) // Example endpoint for login
       .then((response) => {
         console.log('add offer response', response);
-        toast.success('Offer sent to the customer!', {
+        toast.success('Order completed successfully!', {
           position: "bottom-center",
           autoClose: 3000,
           hideProgressBar: false,
@@ -72,7 +71,7 @@ const SupplierViewOrderscomponent = () => {
       />
       <div className='header-contactus'></div>
       <div className='body-contact-container'>
-        <h1 className='contact-h1'>{t('Customers orders')}
+        <h1 className='contact-h1'>{t('Orders to be served!')}
         </h1>
 
         <div className='innner-body-contact'>
@@ -84,13 +83,13 @@ const SupplierViewOrderscomponent = () => {
                   <strong>Customer:</strong> {order.client_name || 'N/A'}
                 </div>
                 <div>
+                  <strong>Phone Number:</strong> {order.client_phone}
+                </div>
+                <div>
                   <strong>Payment Method:</strong> {order.payment_method}
                 </div>
                 <div>
                   <strong>Tank ID:</strong> {order.tank_id || 'N/A'}
-                </div>
-                <div>
-                  <strong>State:</strong> {order.state}
                 </div>
                 <div>
                   <strong>Created At:</strong> {order.created_at || 'N/A'}
@@ -98,15 +97,8 @@ const SupplierViewOrderscomponent = () => {
 
                 {order.state === 'pending' && (
                   <div className="button-container">
-                    <p className="parag-second-inner-container-custom">Offer:&nbsp;
-                      <input
-                        type="text"
-                        onBlur={handleInputChange}
-                        placeholder="Price $"
-                      />
-                    </p>
-                    <button className="cancel-button" onClick={() => addOffer(order)}>
-                      Add Offer
+                    <button className="cancel-button" onClick={() => completeOrder(order)}>
+                      Complete Order
                     </button>
                   </div>
                 )}
@@ -118,4 +110,4 @@ const SupplierViewOrderscomponent = () => {
     </div>
   );
 };
-export default SupplierViewOrderscomponent;
+export default SupplierViewAcceptedOrderscomponent;

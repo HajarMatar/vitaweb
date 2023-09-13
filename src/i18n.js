@@ -8,6 +8,8 @@ const resources = {
       "nav.home": "Home",
       "nav.employment": "Employment",
       "nav.customer": "Customer",
+      "nav.serveOrders": "Serve orders",
+      "nav.supplierOrders": "Customers orders",
       "nav.about Us": "AboutUs",
       "nav.contact Us": "ContactUs",
 

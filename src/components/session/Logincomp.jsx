@@ -27,7 +27,7 @@ const Logincomp = () => {
 
   const handleToggle = () => {
     setIsToggled(!isToggled);
-    if(type == 'client'){
+    if(!isToggled){
       setType('supplier')
     } else{
       setType('client')
@@ -44,6 +44,9 @@ const Logincomp = () => {
 
 
   useEffect(() => {
+    setType('client')
+    setIsToggled(false);
+
     if (isLoggedIn) {
       setType(localStorage.getItem('userType'));
       const user = JSON.parse(localStorage.getItem('user'));
@@ -110,7 +113,8 @@ const Logincomp = () => {
 
   const handleLogout = () => {
     console.log('handle handleLogout');
-
+    setType('client')
+    setIsToggled(false);
     localStorage.removeItem('token');
     localStorage.removeItem('userType');
     localStorage.removeItem('user');

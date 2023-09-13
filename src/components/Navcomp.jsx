@@ -29,6 +29,8 @@ const { t, i18n } = useTranslation();
      }
    };
 
+   const type = localStorage.getItem('userType');
+
   return (
     <div>
 
@@ -38,8 +40,15 @@ const { t, i18n } = useTranslation();
      
     <Link to="/"> <button className='button-navbar'> {t('nav.home')} </button></Link>
        <Link to="/Employment">  <button className='button-navbar'> {t('nav.employment')} </button></Link>
-       <Link to="/Customer"><button className='button-navbar'>{t('nav.customer')} </button></Link> 
+       {type == 'client' && (      
+       <Link to="/Customer"><button className='button-navbar'>{t('nav.customer')} </button></Link>
+       )}
+       {type == 'supplier' && (      
        <Link to="/ViewOrders"><button className='button-navbar'>{t('nav.supplierOrders')} </button></Link>
+       )}
+      {type == 'supplier' && (      
+        <Link to="/ViewAcceptedOrders"><button className='button-navbar'>{t('nav.serveOrders')} </button></Link>
+            )}
        <Link to="/AboutUs"><button className='button-navbar'>{t('nav.about Us')}</button></Link>
        <Link to="/ContactUs"> <button className='button-navbar'>{t('nav.contact Us')}</button></Link>
        <Link to="/Login"> <button className='button-navbar'>Login </button></Link>
