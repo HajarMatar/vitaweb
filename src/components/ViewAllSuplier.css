@@ -223,6 +223,7 @@ background-size: 100% 100%;
     color: white;
     font-family: Arial, sans-serif;
     padding: 20px;
+    overflow: auto;
   }
   
   .App-header {

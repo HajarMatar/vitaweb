@@ -14,6 +14,8 @@ import CustomerOrders from "./pages/CustomerOrders";
 import ViewAllOffers from "./pages/ViewAllOffers";
 import ViewAllSuplier from "./pages/ViewAllSuplier";
 
+import SupplierViewOrders from "./pages/SupplierViewOrders"
+
 import Signuppage from "./pages/Signuppage";
 import Loginpage from "./pages/Loginpage";
 import ChangepassPage from "./pages/ChangepassPage";
@@ -37,6 +39,8 @@ function App() {
     <Route path='/CustomerOrders' element={<ProtectedCustomerRoute element={<CustomerOrders />} />} />
     <Route path='/CustomerOffers' element={<ProtectedCustomerRoute element={<ViewAllOffers />} />} />
     <Route path='/ViewAllSuplier' element={<ProtectedRoute element={<ViewAllSuplier />} />} />
+    <Route path='/ViewOrders' element={<ProtectedRoute element={<SupplierViewOrders />} />} />
+
     <Route path='/Login' element={<Loginpage />} />
     <Route path='/Signup' element={<Signuppage />} />
     <Route path='/Changepass' element={<ChangepassPage />} />

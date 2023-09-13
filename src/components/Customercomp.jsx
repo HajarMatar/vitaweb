@@ -136,7 +136,7 @@ const Customercomp = () => {
             <div key={index} className="second-inner-container-custom-div">
               <p className="second-inner-container-custom-firstp">{tank.size}L</p>
               <img className="second-inner-container-custom-img" src={getTankImage(tank)} alt="dfsd" />
-              <p className="parag-second-inner-container-custom">Payment Method:
+              <p className="parag-second-inner-container-custom">Payment Method:&nbsp;
                 <input
                   type="text"
                   onBlur={handleInputChange}
