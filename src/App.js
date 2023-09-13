@@ -10,11 +10,12 @@ import Login from "./pages/Login";
 import ChangePassword from "./pages/ChangePassword";
 import SignUp from "./pages/SignUp";
 import Edit from "./pages/Edit";
-import CustomerOrders from "./pages/CustomerOrders"
-import ViewAllSuplier from "./pages/ViewAllSuplier"
+import CustomerOrders from "./pages/CustomerOrders";
+import ViewAllOffers from "./pages/ViewAllOffers";
+import ViewAllSuplier from "./pages/ViewAllSuplier";
 
 import Signuppage from "./pages/Signuppage";
-import Loginpage from "./pages/Loginpage"
+import Loginpage from "./pages/Loginpage";
 import ChangepassPage from "./pages/ChangepassPage";
 import EditPage from "./pages/EditPage";
 
@@ -34,6 +35,7 @@ function App() {
     <Route path='/ContactUs' element={<ContactUs />} />
     <Route path='/Customer' element={<ProtectedCustomerRoute element={<Customer />} />} />
     <Route path='/CustomerOrders' element={<ProtectedCustomerRoute element={<CustomerOrders />} />} />
+    <Route path='/CustomerOffers' element={<ProtectedCustomerRoute element={<ViewAllOffers />} />} />
     <Route path='/ViewAllSuplier' element={<ProtectedRoute element={<ViewAllSuplier />} />} />
     <Route path='/Login' element={<Loginpage />} />
     <Route path='/Signup' element={<Signuppage />} />

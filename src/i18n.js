@@ -98,6 +98,7 @@ const resources = {
       "cust.diameter": "Diameter Of The Pool",
       "cust.view2":"View my order",
       "cust.view1":"View all suplier",
+      "cust.view3":"View all offers",
 
 
 
@@ -199,6 +200,7 @@ const resources = {
       "cust.diameter": " قطر حمام السباحة",
       "cust.view2":"عرض جميع الموردين",
       "cust.view1":"عرض جميع طلباتي",
+      "cust.view3":"عرض جميع العروض",
       // Login
       "login.welcome": "اهلا",
       "login.serverError": "Server error",

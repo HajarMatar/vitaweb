@@ -37,8 +37,8 @@ const AppViewAllSuplier = () => {
 
           <div className="supplier">
             <div className="User-list">
-              {users.map((user) => (
-                <div key={user.ID} className="User-card">
+              {users.map((user, index) => (
+                <div key={index} className="User-card">
                   <h2>{user.name}</h2>
                   <p>Email: {user.email}</p>
                   <p>Phone Number: {user.phone_number}</p>
